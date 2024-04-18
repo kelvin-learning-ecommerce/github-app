@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    kotlin("kapt")
+    id("kotlin-kapt")
     alias(libs.plugins.daggerHilt)
 }
 
@@ -79,6 +79,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material)
     implementation(libs.android.hilt.navigation)
+    implementation(libs.android.hilt.navigation.fragment)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -88,6 +89,20 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     //hilt
-    implementation(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
+    kapt(libs.androidx.hilt.compiler)
     implementation(libs.android.hilt)
+
+    //retrofit
+    implementation(libs.okhttp.retrofit)
+    implementation(libs.okhttp.converter)
+    implementation(libs.okhttp.interceptor)
+
+    //room
+    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)
+    implementation(libs.room.ktx)
+
+//    kapt("android.arch.persistence.room:compiler:1.1.1")
+//    testImplementation("androidx.room:room-testing:$room_version")
 }
