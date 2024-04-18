@@ -1,4 +1,4 @@
-package com.kelvin.githubapiapp
+package com.kelvin.githubapiapp.feature.popular.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

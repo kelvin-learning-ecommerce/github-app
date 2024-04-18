@@ -13,10 +13,14 @@
         android:theme="@style/Theme.GithubApiApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".feature.popular.presentation.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.GithubApiApp">
+
+        </activity>
+        <activity android:name="com.kelvin.githubapiapp.feature.popular.presentation.splash.SplashScreenActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
