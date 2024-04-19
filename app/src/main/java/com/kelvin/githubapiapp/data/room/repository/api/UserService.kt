@@ -7,20 +7,25 @@ import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 import java.io.IOException
 import javax.inject.Inject
 
 interface UsersApi {
     @GET("users")
     suspend fun getUsers(
+        @Query("per_page") page: Int? = 10,
+        @Query("since") since: Int? = 0
     ): Response<List<UserModel>>
 }
 
 class UserService @Inject constructor(private val api: UsersApi) {
-    fun getUsersList(id: Int, since: Int): Flow<Resource<List<UserModel>>> = flow {
+    fun getUsersList(perPage: Int, since: Int): Flow<Resource<List<UserModel>>> = flow {
         emit(Resource.Loading())
         try {
-            val genre = api.getUsers()
+            val genre = api.getUsers(
+                since = since
+            )
 
             emit(Resource.Success(genre.body()))
         } catch (e: HttpException) {

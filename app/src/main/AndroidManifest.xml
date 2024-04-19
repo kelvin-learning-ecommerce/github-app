@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
@@ -14,10 +16,7 @@
         android:theme="@style/Theme.GithubApiApp"
         tools:targetApi="34">
         <activity
-            android:name=".feature.home.presentation.HomeActivity"
-            android:exported="true" />
-        <activity
-            android:name=".feature.splash.presentation.SplashScreenActivity"
+            android:name="com.kelvin.githubapiapp.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

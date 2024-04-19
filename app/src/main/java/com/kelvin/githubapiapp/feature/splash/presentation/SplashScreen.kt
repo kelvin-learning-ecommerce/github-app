@@ -16,31 +16,20 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import com.kelvin.githubapiapp.R
 import com.kelvin.githubapiapp.feature.splash.viewmodel.SplashViewModel
 import com.kelvin.githubapiapp.ui.theme.GithubApiAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-@SuppressLint("CustomSplashScreen")
-@AndroidEntryPoint
-class SplashScreenActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-        setContent {
-            SplashScreen()
-        }
-    }
-}
-
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
 fun SplashScreen(
+    navController: NavHostController,
     vm: SplashViewModel = hiltViewModel()
 ) {
 
-    vm.toHomePage(LocalContext.current)
+    vm.toHomePage(navController)
 
     GithubApiAppTheme {
         Surface(

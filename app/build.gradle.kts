@@ -80,6 +80,7 @@ dependencies {
     implementation(libs.androidx.material)
     implementation(libs.android.hilt.navigation)
     implementation(libs.android.hilt.navigation.fragment)
+    implementation(libs.androidx.nav.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -87,6 +88,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    debugImplementation(libs.async.image)
 
     //hilt
     kapt(libs.hilt.compiler)

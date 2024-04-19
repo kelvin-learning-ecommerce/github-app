@@ -10,7 +10,6 @@ import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(private val movieService: UserService) :
     UserRepository {
-
     override fun getUserList(params: UserListQuery): Flow<Resource<List<UserModel>>> =
-        movieService.getUsersList(params.page, params.since);
+        movieService.getUsersList(params.per_page, params.since)
 }

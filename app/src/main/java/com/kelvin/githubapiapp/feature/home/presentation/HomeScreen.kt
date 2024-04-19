@@ -18,29 +18,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.kelvin.githubapiapp.feature.popular.presentation.PopularScreen
 import com.kelvin.githubapiapp.ui.theme.GithubApiAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
-class HomeActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            GithubApiAppTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting()
-                }
-            }
-        }
-    }
-}
-
 @Composable
-fun Greeting() {
+fun HomeScreen(
+    navController: NavHostController,
+) {
     var tabIndex by remember { mutableIntStateOf(0) }
 
     val tabs = listOf("Popular", "Favorite")
@@ -56,8 +43,8 @@ fun Greeting() {
             }
         }
         when (tabIndex) {
-            0 -> PopularScreen()
-            1 -> PopularScreen()
+            0 -> PopularScreen(navController = navController)
+            1 -> PopularScreen(navController = navController)
         }
     }
 }
@@ -66,6 +53,8 @@ fun Greeting() {
 @Composable
 fun GreetingPreview() {
     GithubApiAppTheme {
-        Greeting()
+        HomeScreen(
+            navController = rememberNavController()
+        )
     }
 }
