@@ -1,4 +1,4 @@
-package com.kelvin.githubapiapp.shared.utils
+package com.kelvin.githubapiapp.shared.component
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

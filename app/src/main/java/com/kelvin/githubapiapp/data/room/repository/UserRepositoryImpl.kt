@@ -1,5 +1,6 @@
 package com.kelvin.githubapiapp.data.room.repository
 
+import com.kelvin.githubapiapp.data.model.UserDetailModel
 import com.kelvin.githubapiapp.data.model.UserModel
 import com.kelvin.githubapiapp.data.query.UserListQuery
 import com.kelvin.githubapiapp.data.room.repository.api.UserService
@@ -11,5 +12,8 @@ import javax.inject.Inject
 class UserRepositoryImpl @Inject constructor(private val movieService: UserService) :
     UserRepository {
     override fun getUserList(params: UserListQuery): Flow<Resource<List<UserModel>>> =
-        movieService.getUsersList(params.per_page, params.since)
+        movieService.getUsersList(params.per_page, params.since, params.search)
+
+    override fun getUserDetail(id: Int): Flow<Resource<UserDetailModel>> =
+        movieService.getUserDetail(id)
 }

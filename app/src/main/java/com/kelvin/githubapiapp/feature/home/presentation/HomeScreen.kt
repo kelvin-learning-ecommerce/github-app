@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.kelvin.githubapiapp.feature.favorite.presentation.FavoriteScreen
 import com.kelvin.githubapiapp.feature.popular.presentation.PopularScreen
 import com.kelvin.githubapiapp.ui.theme.GithubApiAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,7 +45,7 @@ fun HomeScreen(
         }
         when (tabIndex) {
             0 -> PopularScreen(navController = navController)
-            1 -> PopularScreen(navController = navController)
+            1 -> FavoriteScreen(navController = navController)
         }
     }
 }

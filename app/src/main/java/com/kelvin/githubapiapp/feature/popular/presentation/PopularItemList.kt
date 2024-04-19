@@ -4,7 +4,6 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,13 +26,13 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.kelvin.githubapiapp.R
-import com.kelvin.githubapiapp.data.model.UserModel
+import com.kelvin.githubapiapp.data.model.UserUIModel
 
 @Composable
 fun PopularItemList(
-    user: UserModel,
-    onItemClick: (UserModel) -> Unit,
-    onItemFav: (UserModel) -> Unit,
+    user: UserUIModel,
+    onItemClick: (UserUIModel) -> Unit,
+    onItemFav: ((UserUIModel) -> Unit?)? = null,
 ) {
     Card(
         elevation = CardDefaults.cardElevation(),
@@ -82,7 +81,7 @@ fun PopularItemList(
                 ), "Favorite icon",
                     modifier = Modifier
                         .clickable {
-                            onItemFav(user)
+                            onItemFav?.let { it(user) }
                         }
                         .align(Alignment.TopEnd)
                         .padding(15.dp)

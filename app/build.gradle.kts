@@ -104,7 +104,9 @@ dependencies {
     implementation(libs.room.runtime)
     annotationProcessor(libs.room.compiler)
     implementation(libs.room.ktx)
+    kapt(libs.room.persistance)
 
-//    kapt("android.arch.persistence.room:compiler:1.1.1")
+    //test
 //    testImplementation("androidx.room:room-testing:$room_version")
+    androidTestImplementation(libs.android.hilt.test)
 }

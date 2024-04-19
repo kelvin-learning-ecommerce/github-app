@@ -1,4 +1,4 @@
-package com.kelvin.githubapiapp.shared.utils
+package com.kelvin.githubapiapp.shared.component
 
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.RepeatMode
@@ -17,7 +17,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.TileMode
 
-fun Modifier.shimmerBackground(shape: RoundedCornerShape): Modifier = composed {
+fun Modifier.userDetailShimmerBackground(shape: RoundedCornerShape): Modifier = composed {
     val transition = rememberInfiniteTransition(label = "")
 
     val translateAnimation by transition.animateFloat(
