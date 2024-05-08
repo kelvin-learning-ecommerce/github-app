@@ -1,9 +1,9 @@
 package com.kelvin.githubapiapp.di
 
-import com.kelvin.githubapiapp.data.room.repository.UserRepositoryImpl
-import com.kelvin.githubapiapp.data.room.repository.api.UserService
-import com.kelvin.githubapiapp.data.room.repository.api.UsersApi
-import com.kelvin.githubapiapp.domain.repository.UserRepository
+import com.kelvin.githubappapi.impl.UserRepositoryImpl
+import com.kelvin.githubappapi.impl.api.UserService
+import com.kelvin.githubappapi.impl.api.UsersApi
+import com.kelvin.githubappapi.repository.UserRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

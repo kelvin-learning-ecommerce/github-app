@@ -18,7 +18,15 @@ room = "2.6.1"
 roomPersistance = "1.1.1"
 navCompose = "2.7.1"
 coilCompose = "2.6.0"
-androidHiltTest = "2.29-alpha"
+androidHiltTest = "2.44"
+navigationTesting = "2.7.7"
+runner = "1.5.2"
+mock = "1.13.4"
+coroutinesTest = "1.7.1"
+googleTruth = "1.1.3"
+navigationRuntimeKtx = "2.7.7"
+appcompat = "1.6.1"
+materialVersion = "1.10.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -51,9 +59,19 @@ room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-persistance = { group = "android.arch.persistence.room", name = "compiler", version.ref = "roomPersistance" }
 async-image = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilCompose" }
 android-hilt-test = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "androidHiltTest" }
+android-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "androidHiltTest" }
 room-test = { group = "androidx.room", name = "room-testing", version.ref = "room" }
+androidx-navigation-testing = { group = "androidx.navigation", name = "navigation-testing", version.ref = "navigationTesting" }
+androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
+io-mock = { group = "io.mockk", name = "mockk", version.ref = "mock" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
+google-truth = { group = "com.google.truth", name = "truth", version.ref = "googleTruth" }
+androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 daggerHilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltcompiler" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }

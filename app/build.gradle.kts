@@ -31,13 +31,6 @@ android {
             )
         }
     }
-//    compileOptions {
-//        sourceCompatibility = JavaVersion.VERSION_1_8
-//        targetCompatibility = JavaVersion.VERSION_1_8
-//    }
-//    kotlinOptions {
-//        jvmTarget = "1.8"
-//    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -51,24 +44,24 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
-//    packaging {
-//        resources {
-//            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-//        }
-//    }
     packaging {
         resources.excludes.addAll(
             listOf(
-//                "META-INF/LICENSE.md",
-//                "META-INF/LICENSE-notice.md",
                 "META-INF/gradle/incremental.annotation.processors",
+                "META-INF/LICENSE.md",
+                "META-INF/LICENSE-notice.md",
 //                "/META-INF/{AL2.0,LGPL2.1}"
+
             )
         )
     }
 }
 
 dependencies {
+    implementation(project(Modules.remote))
+    implementation(project(Modules.domain))
+    implementation(project(Modules.screen))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -81,6 +74,8 @@ dependencies {
     implementation(libs.android.hilt.navigation)
     implementation(libs.android.hilt.navigation.fragment)
     implementation(libs.androidx.nav.compose)
+    implementation(libs.androidx.navigation.testing)
+    implementation(libs.androidx.runner)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -107,6 +102,14 @@ dependencies {
     kapt(libs.room.persistance)
 
     //test
-//    testImplementation("androidx.room:room-testing:$room_version")
-    androidTestImplementation(libs.android.hilt.test)
+    testImplementation(libs.room.test)
+//    kaptAndroidTest(libs.android.hilt.compiler)
+    androidTestImplementation ("com.google.dagger:hilt-android-testing:2.44")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.44")
+//    testImplementation(libs.android.hilt.test)
+
+    //coroutines
+    implementation(libs.io.mock)
+    implementation(libs.coroutines.test)
+    implementation(libs.google.truth)
 }

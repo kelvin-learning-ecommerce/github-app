@@ -2,15 +2,17 @@ package com.kelvin.githubapiapp.di
 
 import android.content.Context
 import androidx.room.Room
-import com.kelvin.githubapiapp.data.room.AppDatabase
-import com.kelvin.githubapiapp.data.room.repository.FavoriteRepositoryImpl
-import com.kelvin.githubapiapp.domain.repository.FavoriteRepository
+import com.kelvin.githubappapi.AppDatabase
+import com.kelvin.githubappapi.impl.FavoriteRepositoryImpl
+import com.kelvin.githubappapi.repository.FavoriteRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
+
+const val DB_NAME = "github_kelvin_app_db"
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -19,7 +21,7 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
-        return Room.databaseBuilder(context, AppDatabase::class.java, "github_kelvin_app_db")
+        return Room.databaseBuilder(context, AppDatabase::class.java, DB_NAME)
             .allowMainThreadQueries().build()
     }
 }
